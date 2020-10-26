@@ -1,0 +1,53 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+    <ngx-spinner bdColor="rgba(0,0,0,0)" color="#000"></ngx-spinner>
+    <h3>Cadastro de Turma</h3>
+    <form [formGroup]="formTurma" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCurso">Curso</label>
+                <input type="text" class="form-control" id="inputCurso" name="curso" formControlName="curso" required
+                    placeholder="Insira o nome do curso">
+                <app-mostra-erro-campo [displayError]="isFieldValid('curso')"
+                    errorMsg="Por favor informe o nome do curso"></app-mostra-erro-campo>
+            </div>
+            <div class="contact-form col-md-6">
+                <label for="inputTurno">Turno</label>
+                <select class="form-control" formControlName="turno" name="turno" id="inputTurno">
+                    <!-- <option value="none" disabled selected>Selecione uma opção</option> -->
+                    <option value="manhã">Manhã</option>
+                    <option value="tarde">Tarde</option>
+                    <option value="noite">Noite</option>
+                </select>
+                <app-mostra-erro-campo [displayError]="isFieldValid('turno')"
+                    errorMsg="Por favor selecione uma opção de turno">
+                </app-mostra-erro-campo>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputSerie">Série</label>
+                <input type="text" class="form-control" id="inputSerie" name="serie" formControlName="serie" required
+                    placeholder="Insira a série">
+                <app-mostra-erro-campo [displayError]="isFieldValid('serie')" errorMsg="Por favor informe a série">
+                </app-mostra-erro-campo>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputVagas">Vagas</label>
+                <input type="number" class="form-control" id="inputVagas" name="vagas" formControlName="vagas" min="1"
+                    placeholder="Insira o número de vagas">
+                <app-mostra-erro-campo [displayError]="isFieldValid('vagas')"
+                    errorMsg="Por favor informe a quantidade de vagas"></app-mostra-erro-campo>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <a class="btn btn-warning" [routerLink]="['']">Voltar</a>
+            </div>
+            <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-primary float-right">Cadastrar</button>
+            </div>
+        </div>
+    </form>
+</div>

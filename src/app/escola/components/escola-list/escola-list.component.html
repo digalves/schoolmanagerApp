@@ -1,0 +1,28 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+  <ngx-spinner bdColor="rgba(0,0,0,0)" color="#000"></ngx-spinner>
+  <table class="table table-striped" *ngIf="escolas?.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" class="text-center">Escola</th>
+        <th scope="col" class="text-center">Endereço</th>
+        <th scope="col" class="text-center">Ver turmas</th>
+        <th scope="col" class="text-center">Cadastrar turma</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let escola of escolas; let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td class="text-center">{{escola.prefixo}} {{escola.nome}}</td>
+        <td class="text-center">{{escola.rua}}, Nº {{escola.numero}}, {{escola.bairro}}</td>
+        <td class="text-center"><a [routerLink]="['', 'listar-turmas', escola.id]"><i class="fa fa-users"></i></a></td>
+        <td class="text-center"><a [routerLink]="['', 'cadastrar-turma', escola.id]"><i class="fa fa-plus"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 *ngIf="escolas?.length == 0" class="text-center">Nenhuma escola cadastrada</h3>
+
+</div>

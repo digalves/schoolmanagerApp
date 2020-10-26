@@ -1,0 +1,55 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+    <h3>Cadastro de Escola</h3>
+    <ngx-spinner bdColor="rgba(0,0,0,0)" color="#000"></ngx-spinner>
+    <form [formGroup]="formEscola" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputPrefixo">Prefixo</label>
+                <input type="text" class="form-control" id="inputPrefixo" name="prefixo" formControlName="prefixo"
+                    required placeholder="Ex.  E.E.E.F.M">
+                <app-mostra-erro-campo [displayError]="isFieldValid('prefixo')"
+                    errorMsg="Por favor informe o prefixo da escola"></app-mostra-erro-campo>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputNome">Nome</label>
+                <input type="text" class="form-control" id="inputNome" name="nome" formControlName="nome" required
+                    placeholder="Insira o nome da escola">
+                <app-mostra-erro-campo [displayError]="isFieldValid('nome')"
+                    errorMsg="Por favor informe o nome da escola"></app-mostra-erro-campo>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputRua">Rua</label>
+            <input type="text" class="form-control" id="inputRua" name="rua" formControlName="rua" required
+                placeholder="Insira o nome da rua">
+            <app-mostra-erro-campo [displayError]="isFieldValid('rua')" errorMsg="Por favor informe o nome da rua">
+            </app-mostra-erro-campo>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputBairro">Bairro</label>
+                <input type="text" class="form-control" id="inputBairro" name="bairro" formControlName="bairro" required
+                    placeholder="Insira o nome do bairro">
+                <app-mostra-erro-campo [displayError]="isFieldValid('bairro')"
+                    errorMsg="Por favor informe o nome do bairro"></app-mostra-erro-campo>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputNumero">Número</label>
+                <input type="number" class="form-control" id="inputNumero" name="numero" formControlName="numero"
+                    min="1" placeholder="Insira o número">
+                <app-mostra-erro-campo [displayError]="isFieldValid('numero')"
+                    errorMsg="Por favor informe o nome número"></app-mostra-erro-campo>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <a class="btn btn-warning" [routerLink]="['']">Voltar</a>
+            </div>
+            <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-primary float-right">Cadastrar</button>
+            </div>
+        </div>
+    </form>
+</div>

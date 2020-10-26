@@ -1,0 +1,34 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container">
+  <ngx-spinner bdColor="rgba(0,0,0,0)" color="#000"></ngx-spinner>
+  <table class="table table-striped" *ngIf="turmas?.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" class="text-center">Curso</th>
+        <th scope="col" class="text-center">Turno</th>
+        <th scope="col" class="text-center">Série</th>
+        <th scope="col" class="text-center">Quantidade de vagas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let turma of turmas; let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td class="text-center">{{turma.curso}}</td>
+        <td class="text-center">{{turma.turno}}</td>
+        <td class="text-center">{{turma.serie}}</td>
+        <td class="text-center">{{turma.vagas}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 *ngIf="turmas?.length == 0" class="text-center">Nenhuma turma cadastrada</h3>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <a class="btn btn-warning" [routerLink]="['']">Voltar</a>
+    </div>
+  </div>
+
+</div>
